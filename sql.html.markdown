@@ -65,16 +65,16 @@ SELECT DISTINCT title FROM titles ORDER BY title ASC;
 
 -- Use the comparison operators (=, >, <, >=, <=, <>) and
 -- the conditional keywords (AND, OR) to refine your queries.
-SELECT * FROM departments WHERE dept_no = 'd001' OR dept_no = 'd002'
+SELECT * FROM departments WHERE dept_no = 'd001' OR dept_no = 'd002';
 
 -- Same as above.
-SELECT * FROM departments WHERE dept_no IN ('d001', 'd0002')
+SELECT * FROM departments WHERE dept_no IN ('d001', 'd002');
 
 -- Opposite of the above.
-SELECT * FROM departments WHERE dept_no NOT IN ('d001', 'd0002')
+SELECT * FROM departments WHERE dept_no NOT IN ('d001', 'd002');
 
 -- Select in a given range.
-SELECT * from departments WHERE dept_no BETWEEN 'd001' AND 'd0002'
+SELECT * from departments WHERE dept_no BETWEEN 'd001' AND 'd002';
 
 -- Show the number of rows in the departments table.
 SELECT COUNT(*) FROM departments;
@@ -91,15 +91,15 @@ SELECT COUNT(*) FROM departments WHERE dept_name LIKE '%en%';
 -- Retrieve the total number of employees, by department number,
 -- with the condition of having more than 100 employees.
 SELECT dept_no, COUNT(dept_no) FROM dept_emp GROUP BY dept_no
-HAVING COUNT(dept_no) > 100
+HAVING COUNT(dept_no) > 100;
 
 -- Aliases, using the optional keyword AS, can be used for column/table names.
 SELECT COUNT(A.*) AS total_employees, COUNT(B.*) total_departments
-FROM employees AS A, departments B
+FROM employees AS A, departments B;
 
 -- Common date format is "yyyy-mm-dd".
 -- However, it can vary according to the implementation, the operating system, and the session's locale.
-SELECT * FROM dept_manager WHERE from_date >= '1990-01-01'
+SELECT * FROM dept_manager WHERE from_date >= '1990-01-01';
 
 -- A JOIN of information from multiple tables: the titles table shows
 -- who had what job titles, by their employee numbers, from what
@@ -117,7 +117,7 @@ FROM titles INNER JOIN employees ON
 -- UNION selects distinct rows, UNION ALL selects all rows.
 SELECT * FROM departments WHERE dept_no = 'd001'
 UNION
-SELECT * FROM departments WHERE dept_no = 'd002'
+SELECT * FROM departments WHERE dept_no = 'd002';
 
 -- SQL syntax order is:
 -- SELECT _ FROM _ JOIN _ ON _ WHERE _ GROUP BY _ HAVING _ ORDER BY _ UNION
